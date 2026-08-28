@@ -6,7 +6,7 @@ redaction, and audit visibility.
 
 ## Repository layout
 
-- `experiment2/` - React/Vite frontend.
+- `Frontend/` - React/Vite frontend.
 - `Backend/` - Express API, MongoDB persistence, and local Ollama integration.
 - `PRD.md` - product requirements, security boundaries, and release criteria.
 
@@ -24,7 +24,7 @@ redaction, and audit visibility.
 
 The project has two processes:
 
-- `experiment2`: React/Vite frontend on `http://localhost:5173`
+- `Frontend`: React/Vite frontend on `http://localhost:5173`
 - `Backend`: Express API on `http://localhost:5000` with MongoDB storage
 
 ### 1. Start the backend
@@ -78,7 +78,7 @@ Expose the backend from another terminal:
 cloudflared tunnel --url http://localhost:5000
 ```
 
-Copy the backend `https://*.trycloudflare.com` URL into `experiment2\.env`:
+Copy the backend `https://*.trycloudflare.com` URL into `Frontend\.env`:
 
 ```env
 VITE_API_URL=https://<backend-tunnel>.trycloudflare.com/api
@@ -87,7 +87,7 @@ VITE_API_URL=https://<backend-tunnel>.trycloudflare.com/api
 Start the frontend:
 
 ```powershell
-cd ..\experiment2
+cd ..\Frontend
 npm run share
 ```
 
@@ -104,7 +104,7 @@ FRONTEND_ORIGIN=https://<frontend-tunnel>.trycloudflare.com
 ```
 
 Before starting Vite through a tunnel, set the hostname (without `https://`) in
-`experiment2\.env`:
+`Frontend\.env`:
 
 ```env
 VITE_ALLOWED_HOST=<frontend-tunnel>.trycloudflare.com
